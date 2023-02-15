@@ -1,17 +1,15 @@
-package com.numble.banking.account.domain;
+package com.numble.banking.user.domain;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.math.BigInteger;
-
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class Account {
+public class User {
 
     @Getter
     private Long id;
 
     @Getter
-    private BigInteger balance;
+    private String loginId;
 }
