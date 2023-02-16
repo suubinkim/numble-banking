@@ -12,4 +12,7 @@ public class User {
 
     @Getter
     private String loginId;
+
+    @Getter
+    private String password;
 }
