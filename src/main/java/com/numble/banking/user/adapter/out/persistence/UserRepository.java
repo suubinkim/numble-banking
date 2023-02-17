@@ -1,6 +1,5 @@
 package com.numble.banking.user.adapter.out.persistence;
 
-import com.numble.banking.user.application.port.in.UserCommand;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -13,6 +12,4 @@ public interface UserRepository extends JpaRepository<UserJpaEntity,Long> {
     List<UserJpaEntity> findAll();
 
     int countByLoginId(String loginId);
-
-    void save(UserCommand command);
 }

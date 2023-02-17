@@ -18,7 +18,8 @@ public class UserPersistenceAdapter implements GetUserPort, InsertUserPort {
     }
 
     @Override
-    public void save(UserCommand command) {
-        userRepository.save(command);
+    public void registerUser(UserCommand command) {
+        UserJpaEntity user = new UserJpaEntity(command.getLoginId(),command.getPassword());
+        userRepository.save(user);
     }
 }

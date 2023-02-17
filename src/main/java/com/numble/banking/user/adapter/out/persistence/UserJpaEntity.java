@@ -17,7 +17,7 @@ import java.util.Objects;
 public class UserJpaEntity extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -37,5 +37,10 @@ public class UserJpaEntity extends BaseTimeEntity {
     @Override
     public int hashCode() {
         return getClass().hashCode();
+    }
+
+    public UserJpaEntity(String loginId, String password) {
+        this.loginId = loginId;
+        this.password = password;
     }
 }

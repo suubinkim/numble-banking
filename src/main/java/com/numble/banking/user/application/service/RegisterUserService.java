@@ -28,6 +28,6 @@ public class RegisterUserService implements RegisterUserUseCase {
         /** TODO : 비밀번호 암호화 */
 
         // 로그인 정보 저장
-        insertUserPort.save(command);
+        insertUserPort.registerUser(command);
     }
 }
