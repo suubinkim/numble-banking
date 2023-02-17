@@ -1,6 +1,7 @@
 package com.numble.banking.user.adapter.out.persistence;
 
 import com.numble.banking.common.domain.BaseTimeEntity;
+import com.numble.banking.util.CryptoConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class UserJpaEntity extends BaseTimeEntity {
     private String loginId;
 
     @Column
+    @Convert(converter = CryptoConverter.class)
     private String password;
 
     @Override
