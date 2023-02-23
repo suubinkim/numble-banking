@@ -5,11 +5,11 @@ import com.numble.banking.util.CryptoConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.hibernate.Hibernate;
 
-import java.util.Objects;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "user")
 @Data
@@ -27,19 +27,6 @@ public class UserJpaEntity extends BaseTimeEntity {
     @Column
     @Convert(converter = CryptoConverter.class)
     private String password;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        UserJpaEntity that = (UserJpaEntity) o;
-        return id != null && Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 
     public UserJpaEntity(String loginId, String password) {
         this.loginId = loginId;

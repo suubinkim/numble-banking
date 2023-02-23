@@ -5,6 +5,7 @@ import com.numble.banking.security.UserDetailsImpl;
 import com.numble.banking.user.application.port.in.UserCommand;
 import com.numble.banking.user.application.port.out.GetUserPort;
 import com.numble.banking.user.application.port.out.InsertUserPort;
+import com.numble.banking.user.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,6 +21,13 @@ public class UserPersistenceAdapter implements GetUserPort, InsertUserPort, User
     @Override
     public int countByLoginId(String loginId) {
         return userRepository.countByLoginId(loginId);
+    }
+
+    @Override
+    public User findByLoginId(String userLoginId) {
+        UserJpaEntity userJpa = userRepository.findByLoginId(userLoginId)
+                .orElseThrow(() -> new UsernameNotFoundException("Can't find " + userLoginId));
+        return new User(userJpa);
     }
 
     @Override
