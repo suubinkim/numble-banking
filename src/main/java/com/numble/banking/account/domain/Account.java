@@ -14,10 +14,14 @@ public class Account {
     private Long id;
 
     @Getter
+    private String accountName;
+
+    @Getter
     private BigInteger balance;
 
     public Account(AccountJpaEntity jpaEntity) {
         this.id = jpaEntity.getId();
+        this.accountName = jpaEntity.getAccountName();
         this.balance = jpaEntity.getBalance();
     }
 }

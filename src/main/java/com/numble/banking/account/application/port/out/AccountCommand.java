@@ -16,10 +16,14 @@ public class AccountCommand {
     Long id;
 
     @NotNull
+    String accountName;
+
+    @NotNull
     BigInteger balance;
 
     public AccountCommand(Account account) {
         this.id = account.getId();
+        this.accountName = account.getAccountName();
         this.balance = account.getBalance();
     }
 }

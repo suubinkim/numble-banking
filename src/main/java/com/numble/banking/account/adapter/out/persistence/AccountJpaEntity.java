@@ -23,6 +23,9 @@ public class AccountJpaEntity extends BaseTimeEntity {
     private Long id;
 
     @Column
+    private String accountName;
+
+    @Column
     private BigInteger balance;
 
     @ManyToOne(fetch = FetchType.LAZY)
